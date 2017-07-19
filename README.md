@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/fpTfQ1d.jpg)
+![alt text](http://i.imgur.com/EKCnf1b.png)
 
 # Purdue Food
 
