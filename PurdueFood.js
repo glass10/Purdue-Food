@@ -72,7 +72,7 @@ exports.handler = (event, context) => {
               }
             }
 
-            
+
             if(date === "" || date === undefined){
               date = today;
             }
@@ -91,13 +91,52 @@ exports.handler = (event, context) => {
             console.log("Court: " + court);
             console.log("Meal: " + meal);
             console.log("Date: " + date);
-            context.succeed(
-                generateResponse(
-                    buildSpeechletResponse('The values I heard were: ' + court + ", " + meal + ", and " + date, true),
-                    {}
-                )
-            )
 
+
+            //Getting Dining Info
+          var pathOptions = court + "/" + date;
+          var get_options = {
+              host: 'api.hfs.purdue.edu',
+              path: '/menus/v1/locations/'+pathOptions,
+              method: 'GET',
+			    };
+
+          //GETTING INFO FROM DATABASE
+          https.get(get_options, function(res){
+                  console.log("STATUS: " +res.statusCode);
+                      body = '';
+                      res.on('data', function(chunk) {
+                          body += chunk;
+                      });
+                      res.on('end', function() {
+                          try {
+                              //Use Info Here
+                              var food = JSON.parse(body);
+                              console.log(food);
+                              var breakfast = food.Breakfast[0].Items;
+                              console.log(breakfast);
+
+                              context.succeed(
+                                  generateResponse(
+                                      buildSpeechletResponse('The values I heard were: ' + court + ", " + meal + ", and " + date, true),
+                                      {}
+                                  )
+                              )
+                  
+                          } catch (e) {
+                              console.log('Error parsing JSON!');
+                              context.succeed(
+                                  generateResponse(
+                                      buildSpeechletResponseAccount("", true),
+                                      {}
+                                  )
+                              )
+                          }	
+                      })
+                      res.on('error', function(e) {
+                      console.log("Got error: " + e.message);
+                });
+          });
             break;
 
             case "AMAZON.HelpIntent":
