@@ -114,14 +114,57 @@ exports.handler = (event, context) => {
                               var food = JSON.parse(body);
                               console.log(food);
                               var breakfast = food.Breakfast[0].Items;
-                              console.log(breakfast);
+                              //console.log(breakfast);
 
-                              context.succeed(
-                                  generateResponse(
-                                      buildSpeechletResponse('The values I heard were: ' + court + ", " + meal + ", and " + date, true),
-                                      {}
-                                  )
-                              )
+                              var allFood = [];
+
+                              if(meal === "breakfast" || meal === "Breakfast"){
+                                for(var i = 0; i < food.Breakfast.length; i++){
+                                  for(var j = 0; j < food.Breakfast[i].Items.length; j++){
+                                    allFood.push(food.Breakfast[i].Items[j].Name);
+                                  }
+                                }
+                              }
+                              else if(meal === "lunch" || meal === "Lunch"){
+                                for(var i = 0; i < food.Lunch.length; i++){
+                                  for(var j = 0; j < food.Lunch[i].Items.length; j++){
+                                    allFood.push(food.Lunch[i].Items[j].Name);
+                                  }
+                                }
+                              }
+                              else if(meal === "dinner" || meal === "Dinner"){
+                                for(var i = 0; i < food.Dinner.length; i++){
+                                  for(var j = 0; j < food.Dinner[i].Items.length; j++){
+                                    allFood.push(food.Dinner[i].Items[j].Name);
+                                  }
+                                }
+                              }
+
+                              console.log(allFood);
+                              if(allFood.length === 0){
+                                context.succeed(
+                                    generateResponse(
+                                        buildSpeechletResponse("I don't see any meal info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
+                                        {}
+                                    )
+                                )
+                              }
+                              else{
+                                var formattedResponse = "Your options for food at " + court + " for " + meal + " on " + date + " are: ";
+                                for(var i = 0; i < allFood.length; i++){
+                                  var foodItem = allFood[i] + ", ";
+                                  formattedResponse += foodItem;
+                                }
+
+                                context.succeed(
+                                    generateResponse(
+                                        buildSpeechletResponse(formattedResponse, true),
+                                        {}
+                                    )
+                                )
+                              }
+
+                              
                   
                           } catch (e) {
                               console.log('Error parsing JSON!');
