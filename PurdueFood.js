@@ -152,7 +152,12 @@ exports.handler = (event, context) => {
                               else{
                                 var formattedResponse = "Your options for food at " + court + " for " + meal + " on " + date + " are: ";
                                 for(var i = 0; i < allFood.length; i++){
-                                  var foodItem = allFood[i] + ", ";
+                                  if(i === allFood.length -1){
+                                    var foodItem = " and " + allFood[i]
+                                  }
+                                  else{
+                                    var foodItem = allFood[i] + ", ";
+                                  }
                                   formattedResponse += foodItem;
                                 }
 
