@@ -191,7 +191,7 @@ exports.handler = (event, context) => {
                 console.log('HELP REQUEST');
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse('', false),
+                        buildSpeechletResponse('You can ask me for food information for any meal, at any Purdue University dining court, on any day. For example, you can say "whats for lunch at Ford today?". Go ahead and try now', false),
                         {}
                     )
                 )
@@ -201,7 +201,7 @@ exports.handler = (event, context) => {
                 console.log('HELP REQUEST');
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse('', true),
+                        buildSpeechletResponse('Thanks for using Purdue Food', true),
                         {}
                     )
                 )
@@ -211,7 +211,7 @@ exports.handler = (event, context) => {
                 console.log('HELP REQUEST');
                 context.succeed(
                     generateResponse(
-                        buildSpeechletResponse('', true),
+                        buildSpeechletResponse('Thanks for using Purdue Food', true),
                         {}
                     )
                 )
