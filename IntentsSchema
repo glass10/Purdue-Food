@@ -1,0 +1,33 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "Court",
+          "type": "DININGCOURT"
+        },
+        {
+            "name": "Date",
+            "type": "AMAZON.Date"
+        },
+        {
+            "name": "Meal",
+            "type": "DININGMEAL"
+        }
+      ],
+      "intent": "mealReq"
+    },
+    {
+      "intent": "instructions"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

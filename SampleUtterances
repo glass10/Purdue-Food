@@ -1,0 +1,20 @@
+mealReq     {Meal} at {Court} {Date}
+mealReq     {Meal} at {Court} on {Date}
+mealReq     what is for {Meal} at {Court} {Date}
+mealReq     what is for {Meal} at {Court} on {Date}
+mealReq     what's for {Meal} at {Court} {Date}
+mealReq     what's for {Meal} at {Court} on {Date}
+mealReq     what does {Court} have for {Meal} {Date}
+mealReq     what does {Court} have for {Meal} on {Date}
+mealReq     what is at {Court} for {Meal} {Date}
+mealReq     what is at {Court} for {Meal} on {Date}
+mealReq     what's at {Court} for {Meal} {Date}
+mealReq     what's at {Court} for {Meal} on {Date}
+mealReq     what is for {Meal} {Date} at {Court}
+mealReq     what is for {Meal} on {Date} at {Court}
+mealReq     what's for {Meal} {Date} at {Court}
+mealReq     what's for {Meal} on {Date} at {Court}
+mealReq     what is {Meal} {Date} at {Court}
+mealReq     what is {Meal} on {Date} at {Court}
+mealReq     what's {Meal} {Date} at {Court}
+mealReq     what's {Meal} on {Date} at {Court}
