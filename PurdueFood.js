@@ -169,22 +169,17 @@ exports.handler = (event, context) => {
                                 )
                               }
 
-                              
-                  
                           } catch (e) {
-                              console.log('Error parsing JSON!');
+                              console.log("Got Error: " + e.message);
                               context.succeed(
-                                  generateResponse(
-                                      buildSpeechletResponseAccount("", true),
-                                      {}
-                                  )
-                              )
+                                    generateResponse(
+                                        buildSpeechletResponse("I don't see any meal info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
+                                        {}
+                                    )
+                                )
                           }	
                       })
-                      res.on('error', function(e) {
-                      console.log("Got error: " + e.message);
-                });
-          });
+                  });
             break;
 
             case "AMAZON.HelpIntent":
