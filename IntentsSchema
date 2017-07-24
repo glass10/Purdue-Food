@@ -32,7 +32,7 @@
             "type": "DININGMEAL"
         }
       ],
-      "intent": "VegReq"
+      "intent": "vegReq"
     },
     {
       "intent": "instructions"

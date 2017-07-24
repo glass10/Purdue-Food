@@ -45,6 +45,7 @@ exports.handler = (event, context) => {
 
         switch(event.request.intent.name) {
           case "mealReq":
+          console.log("mealReq");
             var court = event.request.intent.slots.Court.value;
             var date = event.request.intent.slots.Date.value;
             var meal = event.request.intent.slots.Meal.value;
@@ -149,9 +150,9 @@ exports.handler = (event, context) => {
                                 )
                               }
                               else{
-                                var formattedResponse = "Your options for food at " + court + " for " + meal + " on " + date + " are: ";
+                                var formattedResponse = "Your options at " + court + " for " + meal + " on " + date + " are: ";
                                 for(var i = 0; i < allFood.length; i++){
-                                  if(i === allFood.length -1){
+                                  if(i === allFood.length -1 && i !== 0){
                                     var foodItem = " and " + allFood[i]
                                   }
                                   else{
@@ -185,7 +186,8 @@ exports.handler = (event, context) => {
         // Intent Request
         console.log(`INTENT REQUEST`)
 
-        case "VegReq":
+        case "vegReq":
+        console.log("vegReq");
           var court = event.request.intent.slots.Court.value;
           var date = event.request.intent.slots.Date.value;
           var meal = event.request.intent.slots.Meal.value;
@@ -262,7 +264,7 @@ exports.handler = (event, context) => {
                             if(meal === "breakfast" || meal === "Breakfast"){
                               for(var i = 0; i < food.Breakfast.length; i++){
                                 for(var j = 0; j < food.Breakfast[i].Items.length; j++){
-                                  if(food.Breakfast[i].Items[j].isVegetarian){
+                                  if(food.Breakfast[i].Items[j].IsVegetarian){
                                     allFood.push(food.Breakfast[i].Items[j].Name);
                                   }
                                 }
@@ -271,7 +273,7 @@ exports.handler = (event, context) => {
                             else if(meal === "lunch" || meal === "Lunch"){
                               for(var i = 0; i < food.Lunch.length; i++){
                                 for(var j = 0; j < food.Lunch[i].Items.length; j++){
-                                  if(food.Lunch[i].Items[j].isVegetarian){
+                                  if(food.Lunch[i].Items[j].IsVegetarian){
                                     allFood.push(food.Lunch[i].Items[j].Name);
                                   }
                                 }
@@ -280,7 +282,7 @@ exports.handler = (event, context) => {
                             else if(meal === "dinner" || meal === "Dinner"){
                               for(var i = 0; i < food.Dinner.length; i++){
                                 for(var j = 0; j < food.Dinner[i].Items.length; j++){
-                                  if(food.Dinner[i].Items[j].isVegetarian){
+                                  if(food.Dinner[i].Items[j].IsVegetarian){
                                     allFood.push(food.Dinner[i].Items[j].Name);
                                   }
                                 }
@@ -291,15 +293,15 @@ exports.handler = (event, context) => {
                             if(allFood.length === 0){
                               context.succeed(
                                   generateResponse(
-                                      buildSpeechletResponse("I don't see any meal info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
+                                      buildSpeechletResponse("I don't see any Vegetarian info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
                                       {}
                                   )
                               )
                             }
                             else{
-                              var formattedResponse = "Your options for food at " + court + " for " + meal + " on " + date + " are: ";
+                              var formattedResponse = "Your Vegetarian options at " + court + " for " + meal + " on " + date + " are: ";
                               for(var i = 0; i < allFood.length; i++){
-                                if(i === allFood.length -1){
+                                if(i === allFood.length -1 && i !== 0){
                                   var foodItem = " and " + allFood[i]
                                 }
                                 else{
@@ -320,7 +322,7 @@ exports.handler = (event, context) => {
                             console.log("Got Error: " + e.message);
                             context.succeed(
                                   generateResponse(
-                                      buildSpeechletResponse("I don't see any meal info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
+                                      buildSpeechletResponse("I don't see any Vegetarian info for " + meal + " at " + court + " on " + date + ". It could be closed!", true),
                                       {}
                                   )
                               )
