@@ -18,3 +18,23 @@ mealReq     what is {Meal} {Date} at {Court}
 mealReq     what is {Meal} on {Date} at {Court}
 mealReq     what's {Meal} {Date} at {Court}
 mealReq     what's {Meal} on {Date} at {Court}
+
+vegReq     vegetarian {Meal} at {Court} on {Date}
+vegReq     what is vegetarian for {Meal} at {Court} {Date}
+vegReq     what is vegetarian for {Meal} at {Court} on {Date}
+vegReq     what's vegetarian for {Meal} at {Court} {Date}
+vegReq     what's vegetarian for {Meal} at {Court} on {Date}
+vegReq     what does {Court} have that's vegetarian for {Meal} {Date}
+vegReq     what does {Court} have that's vegetarian for {Meal} on {Date}
+vegReq     what is vegetarian at {Court} for {Meal} {Date}
+vegReq     what is vegetarian at {Court} for {Meal} on {Date}
+vegReq     what's vegetarian at {Court} for {Meal} {Date}
+vegReq     what's vegetarian at {Court} for {Meal} on {Date}
+vegReq     what is vegetarian for {Meal} {Date} at {Court}
+vegReq     what is vegetarian for {Meal} on {Date} at {Court}
+vegReq     what's vegetarian for {Meal} {Date} at {Court}
+vegReq     what's vegetarian for {Meal} on {Date} at {Court}
+vegReq     what is vegetarian for {Meal} {Date} at {Court}
+vegReq     what is vegetarian for {Meal} on {Date} at {Court}
+vegReq     what's vegetarian for {Meal} {Date} at {Court}
+vegReq     what's vegetarian for {Meal} on {Date} at {Court}    

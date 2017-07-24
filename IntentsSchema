@@ -18,6 +18,23 @@
       "intent": "mealReq"
     },
     {
+      "slots": [
+        {
+          "name": "Court",
+          "type": "DININGCOURT"
+        },
+        {
+            "name": "Date",
+            "type": "AMAZON.Date"
+        },
+        {
+            "name": "Meal",
+            "type": "DININGMEAL"
+        }
+      ],
+      "intent": "VegReq"
+    },
+    {
       "intent": "instructions"
     },
     {
